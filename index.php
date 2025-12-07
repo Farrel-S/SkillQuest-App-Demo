@@ -17,10 +17,10 @@
     <div class="content-wrapper"> 
         <img class="logo-image" src="Images/logo.png" alt="SkillQuest Logo">
         <div class="ui-wrapper">  
-            <button class ="button" onclick="location.href='signin.html'" class ="button">Sign In</button>
+            <button class ="button" onclick="location.href='signin.php'" class ="button">Sign In</button>
             <div class=" sign-up-container">
                 <p>Don't have an account?</p>
-                <a href="signup.html">Sign Up</a>
+                <a href="signup.php">Sign Up</a>
             </div> 
     </div>
 </body>

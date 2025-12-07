@@ -15,7 +15,7 @@
 </head>
 <body>
     <div class="content-wrapper"> 
-        <a href="index.html"><img class="back-btn" src="Images/back.png" alt="back button"></a>
+        <a href="index.php"><img class="back-btn" src="Images/back.png" alt="back button"></a>
         <h1>Welcome</h1>
         <h1>Back.</h1>
         <p class="subheading">Continue your adventure.</p>
