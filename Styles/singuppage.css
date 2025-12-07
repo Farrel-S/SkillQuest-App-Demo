@@ -1,0 +1,179 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    max-height: 917px;
+    overflow: hidden;
+}
+
+.content-wrapper {
+    background-color: rgb(white);
+    height: 917px;
+    width: 412px;
+    margin: auto;
+    background-image: url('../Images/background.png');
+    padding-top: 23px;
+}
+
+.back-btn {
+    margin-left: 23px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+h1 {
+    text-align: left;
+    margin: 0;
+    margin-left: 23px;
+    font-family: "Inter", sans-serif;
+    font-weight: bold;
+    font-size: 32px;
+    color: black;
+    
+}
+
+.subheading {
+    text-align: left;
+    margin: 0;
+    margin-left: 23px;
+    margin-bottom: 35px;
+    font-family: "Inter", sans-serif;
+    font-size: 16px;
+    color: black;
+}
+
+.ui-wrapper {
+    background-color: #3B455E;
+    text-align: center;
+    height: 700px;
+    width: 100%;
+    border-radius: 20px 20px 0 0;
+    padding-top: 30px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+}
+
+input {
+    margin: 0px 23px 20px 48px;
+    padding: 8px 15px;
+    font-size: 15px;
+    border-radius: 10px;
+    border: none;
+    width: 285px;
+    font-family: "Inter", sans-serif;
+}
+
+.ui-wrapper button {
+    background-color: white;
+    color: black;
+    border: none;
+    padding: 15px 30px;
+    font-size: 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 20px;
+    width: 313px;
+    height: 50px;
+    font-weight: bold;
+    font-family: "Inter", sans-serif;
+}
+
+label {
+    text-align: left;
+    margin-left: 48px;
+    font-family: "Inter", sans-serif;
+    color: white;
+    font-size: 20px;
+
+}
+
+label::after {
+    content: " *";
+    color: red;
+}
+
+checkbox-group {
+    display: flex;
+    flex-direction: row;
+
+}
+checkbox-group input {
+    margin-right: 0px;
+    width: 24px;
+    height: 24px;
+    margin-top: 0px;
+}
+checkbox-group label {
+    font-size: 15px;
+    color: white;
+    font-family: "Inter", sans-serif;
+    margin-left: 10px;
+    margin-top: 2px;
+
+}
+
+checkbox-group label::after {
+    content: "";
+}
+
+.sign-up-container {
+    display: inline-flex;
+    color: white;
+    margin-top: 10px;
+}
+
+.sign-up-container p {
+    margin: 0;
+    padding-right: 10px;
+    font-size: 15px;
+    font-family: "Inter", sans-serif;
+}
+
+.sign-up-container a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 15px;
+    font-family: "Inter", sans-serif;
+}
+
+.divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin-top: 22px;
+}
+
+.divider p {
+    margin:10px;
+    color: white;
+    font-family: "Inter", sans-serif;
+}
+
+.divider svg {
+    flex: 1;
+    height: 1px;
+    background-color: white;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    margin-top: 22px;
+    gap: 20px;
+}
+
+.social-icon {
+    cursor: pointer;
+}
+
+.social-icon-apple {
+    padding-top: 4px;
+    width: auto;
+    height: 42px;
+    cursor: pointer;
+}
+
