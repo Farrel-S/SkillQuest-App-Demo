@@ -9,54 +9,44 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="../Styles/singuppage.css">
+    <link rel="stylesheet" href="../Styles/signinpage.css">
 
 
 </head>
 <body>
     <div class="content-wrapper"> 
         <a href="index.html"><img class="back-btn" src="../Images/back.png" alt="back button"></a>
-        <h1>Create</h1>
-        <h1>Account.</h1>
-        <p class="subheading">Start your journey.</p>
+        <h1>Welcome</h1>
+        <h1>Back.</h1>
+        <p class="subheading">Continue your adventure.</p>
         <div class="ui-wrapper">  
-            <form class="signup-form" action="#" method="post">
-                <label for="signup">Full Name</label>
-                <input type="text" name="username" placeholder="Username" required>
-                <label for="signup">Email</label>
+            <form class="signin-form" action="#" method="post">
+                <label for="signin">Email</label>
                 <input type="email" name="email" placeholder="yourname@email.com" required>
-                <label for="signup">Password</label>
+                <label for="signin">Password</label>
                 <input type="password" name="password" placeholder="Password" required>
-                <label for="signup">Phone Number</label>
-                <input type="tel" name="phone" placeholder="eg: 123456789" required>
-                <label for="signup">Birthday Date</label>
-                <input type="date" name="birthday" required>
                 <checkbox-group>
                         <input type="checkbox" name="terms" required>
-                        <label>I agree to the Terms and Conditions</label>
+                        <label>Remember Me</label>
                 </checkbox-group>
             </form>
-            <button type="submit"class ="button">Sign Up</button>
-            <div class=" sign-up-container">
-                <p>Already have an account?</p>
-                <a href="signin.html">Sign In</a>
-            </div> 
+            <button type="submit"class ="button">Sign In</button>
             <div class="divider">
                 <svg width="400" height="11px">
                     <rect x="10" y="10" width="136" height="1px" stroke="White" stroke-width="1px" fill="blue" />
                 </svg>
-                <p class="other-signup">Sign Up With</p>
+                <p class="other-signin">Sign In With</p>
                 <svg width="400" height="11px">
                     <rect x="10" y="10" width="136" height="1px" stroke="White" stroke-width="1px" fill="blue" />
                 </svg>
             </div>
             <div class="social-icons">
-                <img class="social-icon-apple" src="../Images/apple.png" alt="Apple Sign Up">
-                <img class="social-icon" src="../Images/facebook.png" alt="Facebook Sign Up">
-                <img class="social-icon" src="../Images/google.png" alt="Google Sign Up">
-                <img class="social-icon" src="../Images/twitter.png" alt="Twitter Sign Up">
+                <img class="social-icon-apple" src="../Images/apple.png" alt="Apple Sign In">
+                <img class="social-icon" src="../Images/facebook.png" alt="Facebook Sign In">
+                <img class="social-icon" src="../Images/google.png" alt="Google Sign In">
+                <img class="social-icon" src="../Images/twitter.png" alt="Twitter Sign In">
             </div>
-        </div>    
+        </div>            
     </div>
 </body>
 </html>
