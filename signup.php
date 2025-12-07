@@ -15,7 +15,7 @@
 </head>
 <body>
     <div class="content-wrapper"> 
-        <a href="index.html"><img class="back-btn" src="Images/back.png" alt="back button"></a>
+        <a href="index.php"><img class="back-btn" src="Images/back.png" alt="back button"></a>
         <h1>Create</h1>
         <h1>Account.</h1>
         <p class="subheading">Start your journey.</p>
@@ -39,7 +39,7 @@
             <button type="submit"class ="button">Sign Up</button>
             <div class=" sign-up-container">
                 <p>Already have an account?</p>
-                <a href="signin.html">Sign In</a>
+                <a href="signin.php">Sign In</a>
             </div> 
             <div class="divider">
                 <svg width="400" height="11px">
