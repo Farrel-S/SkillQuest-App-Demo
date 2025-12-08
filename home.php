@@ -7,6 +7,8 @@ if (!isset($_SESSION["user_id"])) {
 
 require 'db.php';
 
+$user_id = $_SESSION['user_id'];
+
 $stmt = $conn->prepare("SELECT id, username, email, created_at FROM users WHERE id = ?");
 $stmt->bind_param("i", $user_id);
 $stmt->execute();

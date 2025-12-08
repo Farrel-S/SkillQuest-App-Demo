@@ -1,5 +1,6 @@
 <?php
 require "db.php";
+require "google_config.php";
 
 $error = "";
 
@@ -94,12 +95,49 @@ $conn->close();
             </div>
 
             <div class="social-icons">
-                <img class="social-icon-apple" src="Images/apple.png" alt="Apple Sign In">
-                <img class="social-icon" src="Images/facebook.png" alt="Facebook Sign In">
-                <img class="social-icon" src="Images/google.png" alt="Google Sign In">
-                <img class="social-icon" src="Images/twitter.png" alt="Twitter Sign In">
+                <div id="googleSignInButton" class="social-icon google-button"></div>
             </div>
+
+            <div class="google-alert" style="margin-top:12px;"></div>
         </div>    
     </div>
+
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <script src="Scripts/GoogleSignInManager.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const alertBox = document.querySelector(".google-alert");
+
+            new GoogleSignInManager()
+                .ElementID("googleSignInButton")
+                .ClientID("<?php echo htmlspecialchars(GOOGLE_CLIENT_ID, ENT_QUOTES, "UTF-8"); ?>")
+                .CheckTokenURL("google_token.php")
+                .FailURL("signup.php?google=fail", (data) => {
+                    if (alertBox) {
+                        const message = data?.message || "Google sign-in failed. Please try again.";
+                        alertBox.innerHTML = `<p style=\"color:red;\">${message}</p>`;
+                    }
+                })
+                .SuccessURL("home.php", (data) => {
+                    if (data?.status === "success") {
+                        window.location.href = data.redirect || "home.php";
+                        return;
+                    }
+
+                    if (alertBox) {
+                        const message = data?.message || "Google sign-in failed. Please try again.";
+                        alertBox.innerHTML = `<p style=\"color:red;\">${message}</p>`;
+                    }
+                })
+                .ButtonConfig({
+                    type: "standard",
+                    theme: "ouline",
+                    text: "continue_with",
+                    logo_alignment: "center",
+                    size: "large",
+                    width: 313
+                });
+        });
+    </script>
 </body>
 </html>
