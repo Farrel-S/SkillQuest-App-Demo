@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SkillQuest - Sign In</title>
+    <title>SkillQuest</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,17 +11,17 @@
 
     <link rel="stylesheet" href="Styles/startingpage.css">
 
-
 </head>
 <body>
     <div class="content-wrapper"> 
         <img class="logo-image" src="Images/logo.png" alt="SkillQuest Logo">
         <div class="ui-wrapper">  
-            <button class ="button" onclick="location.href='signin.php'" class ="button">Sign In</button>
-            <div class=" sign-up-container">
+            <button class="button" onclick="location.href='signin.php'">Sign In</button>
+            <div class="sign-up-container">
                 <p>Don't have an account?</p>
                 <a href="signup.php">Sign Up</a>
-            </div> 
+            </div>
+        </div>
     </div>
 </body>
 </html>

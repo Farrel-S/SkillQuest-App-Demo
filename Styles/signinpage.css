@@ -3,7 +3,6 @@ html, body {
     padding: 0;
     max-height: 917px;
     overflow: hidden;
-
 }
 
 .content-wrapper {
@@ -80,6 +79,7 @@ input {
     height: 50px;
     font-weight: bold;
     font-family: "Inter", sans-serif;
+    margin-left: 48px;
 }
 
 label {
@@ -116,7 +116,7 @@ checkbox-group label {
     display: flex;
     align-items: center;
     text-align: center;
-    margin-top: 56px;
+    margin-top: 54px;
     margin-bottom: 14px;
 }
 
@@ -146,7 +146,7 @@ checkbox-group label {
 .social-icon-apple {
     padding-top: 4px;
     width: auto;
-    height: 42px;
+    height: 43px;
     cursor: pointer;
 }
 
