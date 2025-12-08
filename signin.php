@@ -88,10 +88,7 @@ $conn->close();
                 </svg>
             </div>
             <div class="social-icons">
-                <img class="social-icon-apple" src="Images/apple.png" alt="Apple Sign In">
-                <img class="social-icon" src="Images/facebook.png" alt="Facebook Sign In">
                 <div id="googleSignInButton" class="social-icon google-button"></div>
-                <img class="social-icon" src="Images/twitter.png" alt="Twitter Sign In">
             </div>
 
             <div class="google-alert" style="margin-top:12px;"></div>
@@ -128,9 +125,10 @@ $conn->close();
                 .ButtonConfig({
                     type: "standard",
                     theme: "outline",
-                    text: "continue_with",
+                    text: "sign_in_with",
                     logo_alignment: "center",
-                    size: "large"
+                    size: "large",
+                    width: 313,
                 });
         });
     </script>
