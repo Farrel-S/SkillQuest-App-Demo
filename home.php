@@ -5,13 +5,7 @@ if (!isset($_SESSION["user_id"])) {
     die("Access denied. Please <a href='signin.php'>sign in</a>.");
 }
 
-$conn = new mysqli("localhost", "root", "", "skillquest");
-
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
-$user_id = $_SESSION["user_id"];
+require 'db.php';
 
 $stmt = $conn->prepare("SELECT id, username, email, created_at FROM users WHERE id = ?");
 $stmt->bind_param("i", $user_id);

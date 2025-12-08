@@ -3,32 +3,28 @@ require "db.php";
 
 $error = "";
 
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $username = $_POST['username'];
-    $email = $_POST['email'];
-    $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
+    $username = $_POST["username"] ?? "";
+    $email = $_POST["email"] ?? "";
+    $password = $_POST["password"] ?? "";
 
-    $sql = "INSERT INTO users (username, email, password) VALUES (?, ?, ?)";
-    $stmt = $conn->prepare($sql);
-
-    if (!$stmt) {
-        die("SQL Error: " . $conn->error);
-    }
-
-    $stmt->bind_param("sss", $username, $email, $password);
-
-    if ($stmt->execute()) {
-        header("Location: signin.php?registered=1");
-        exit();
+    if (!$username || !$email || !$password) {
+        $error = "All fields are required.";
     } else {
-        $error = "Error: " . $stmt->error;
-    }
+        $hash = password_hash($password, PASSWORD_BCRYPT);
+        $stmt = $conn->prepare("INSERT INTO users (username, email, password) VALUES (?, ?, ?)");
+        $stmt->bind_param("sss", $username, $email, $hash);
 
-    $stmt->close();
+        if ($stmt->execute()) {
+            $stmt->close();
+            $conn->close();
+            header("Location: signin.php?registered=1");
+            exit();
+        } else {
+            $error = "Email or username already exists.";
+        }
+        $stmt->close();
+    }
 }
 $conn->close();
 ?>
@@ -96,7 +92,7 @@ $conn->close();
                     <rect x="10" y="10" width="136" height="1px" stroke="White" stroke-width="1px" fill="blue" />
                 </svg>
             </div>
-            
+
             <div class="social-icons">
                 <img class="social-icon-apple" src="Images/apple.png" alt="Apple Sign In">
                 <img class="social-icon" src="Images/facebook.png" alt="Facebook Sign In">

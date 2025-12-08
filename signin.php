@@ -1,5 +1,6 @@
 <?php
 require "db.php";
+require "google_config.php";
 session_start();
 
 $login_error = "";
@@ -11,16 +12,15 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $stmt = $conn->prepare("SELECT id, username, password FROM users WHERE email = ?");
     $stmt->bind_param("s", $email);
     $stmt->execute();
-    $stmt->store_result();
+    $result = $stmt->get_result();
 
-    if ($stmt->num_rows === 1) {
-        $stmt->bind_result($id, $full_name, $hash);
-        $stmt->fetch();
-
-        if (password_verify($password, $hash)) {
-            $_SESSION["user_id"] = $id;
-            $_SESSION["username"] = $full_name;
-
+    if ($result->num_rows === 1) {
+        $user = $result->fetch_assoc();
+        if (password_verify($password, $user["password"])) {
+            $_SESSION["user_id"] = $user["id"];
+            $_SESSION["username"] = $user["username"];
+            $stmt->close();
+            $conn->close();
             header("Location: home.php");
             exit();
         } else {
@@ -29,7 +29,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     } else {
         $login_error = "No user found with that email.";
     }
+    $stmt->close();
 }
+$conn->close();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -51,7 +53,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         <p class="subheading">Continue your adventure.</p>
 
         <?php if ($login_error): ?>
-        <p style="color:red;"><?= $login_error ?></p>
+        <p style="color:red;"><?= htmlspecialchars($login_error, ENT_QUOTES, "UTF-8") ?></p>
         <?php endif; ?>
 
         <?php if (isset($_GET["registered"])): ?>
@@ -88,10 +90,49 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             <div class="social-icons">
                 <img class="social-icon-apple" src="Images/apple.png" alt="Apple Sign In">
                 <img class="social-icon" src="Images/facebook.png" alt="Facebook Sign In">
-                <img class="social-icon" src="Images/google.png" alt="Google Sign In">
+                <div id="googleSignInButton" class="social-icon google-button"></div>
                 <img class="social-icon" src="Images/twitter.png" alt="Twitter Sign In">
             </div>
+
+            <div class="google-alert" style="margin-top:12px;"></div>
         </div>            
     </div>
+
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <script src="Scripts/GoogleSignInManager.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const alertBox = document.querySelector(".google-alert");
+
+            new GoogleSignInManager()
+                .ElementID("googleSignInButton")
+                .ClientID("<?php echo htmlspecialchars(GOOGLE_CLIENT_ID, ENT_QUOTES, "UTF-8"); ?>")
+                .CheckTokenURL("google_token.php")
+                .FailURL("signin.php?google=fail", (data) => {
+                    if (alertBox) {
+                        const message = data?.message || "Google sign-in failed. Please try again.";
+                        alertBox.innerHTML = `<p style="color:red;">${message}</p>`;
+                    }
+                })
+                .SuccessURL("home.php", (data) => {
+                    if (data?.status === "success") {
+                        window.location.href = data.redirect || "home.php";
+                        return;
+                    }
+
+                    if (alertBox) {
+                        const message = data?.message || "Google sign-in failed. Please try again.";
+                        alertBox.innerHTML = `<p style="color:red;">${message}</p>`;
+                    }
+                })
+                .ButtonConfig({
+                    type: "standard",
+                    theme: "outline",
+                    text: "continue_with",
+                    logo_alignment: "center",
+                    size: "large"
+                });
+        });
+    </script>
 </body>
 </html>
