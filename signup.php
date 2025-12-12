@@ -132,7 +132,7 @@ $conn->close();
                 })
                 .ButtonConfig({
                     type: "standard",
-                    theme: "ouline",
+                    theme: "outline",
                     text: "continue_with",
                     logo_alignment: "center",
                     size: "large",
