@@ -17,7 +17,7 @@
     <div class="content-wrapper"> 
         <img class="logo-image" src="Images/logo.png" alt="SkillQuest Logo">
         <div class="ui-wrapper">  
-            <button id="signin-button" class="signin-button" data-target="signin.php">Sign In</button>
+            <button id="signin-button" class="signin-button" >Sign In</button>
             <div class="sign-up-container">
                 <p>Don't have an account?</p>
                 <a href="signup.php">Sign Up</a>

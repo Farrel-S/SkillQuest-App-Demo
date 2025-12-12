@@ -74,7 +74,7 @@ $conn->close();
                     <label>I agree to the Terms and Conditions</label>
                 </checkbox-group>
 
-                <button type="submit" class="submit-btn">Sign Up</button>
+                <button id="signup-submit" type="submit" class="submit-btn">Sign Up</button>
             </form>
 
             <div class="sign-up-container">
@@ -139,5 +139,6 @@ $conn->close();
                 });
         });
     </script>
+    <script src="Scripts/audiomanager.js"></script>
 </body>
 </html>

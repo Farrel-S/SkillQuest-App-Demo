@@ -73,7 +73,7 @@ $conn->close();
                     <label>Remember Me</label>
                 </checkbox-group>
 
-                <button type="submit" class="button">Sign In</button>
+                <button id="signin-submit" type="submit" class="button">Sign In</button>
             </form>
 
              <div class="divider">
@@ -132,5 +132,6 @@ $conn->close();
                 });
         });
     </script>
+    <script src="Scripts/audiomanager.js"></script>
 </body>
 </html>
