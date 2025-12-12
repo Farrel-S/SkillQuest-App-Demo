@@ -57,10 +57,6 @@ $conn->close();
         <p style="color:red;"><?= htmlspecialchars($login_error, ENT_QUOTES, "UTF-8") ?></p>
         <?php endif; ?>
 
-        <?php if (isset($_GET["registered"])): ?>
-        <p style="color:green;">Account created successfully! Please sign in.</p>
-        <?php endif; ?>
-
         <div class="ui-wrapper">  
             <form class="signin-form" action="signin.php" method="POST">
                 <label>Email</label>
